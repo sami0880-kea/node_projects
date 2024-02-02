@@ -9,7 +9,7 @@ const lastName = "Latif";
 // show in the console
 // My first name is Anders and my last name is Latif
 const meSentence = `My first name is ${firstName} and my last name is ${lastName}`
-console.log(meSentence)
+console.log(`Exercise 1 - ${meSentence}`)
 
 
 // --------------------------------------
@@ -22,7 +22,7 @@ const increment = 1;
 // The result should be 2024
 // You cannot touch line 1 or 2
 const newYear = parseInt(year) + increment;
-console.log(newYear);
+console.log(`Exercise 2 - ${newYear}`);
 
 
 // --------------------------------------
