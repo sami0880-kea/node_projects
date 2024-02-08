@@ -38,7 +38,7 @@ const thisSong = {
 };
 
 // remove the property "description" and add a property called "about" that should say "Just a tribute." 
-thisSong.description = null
+delete thisSong.description
 thisSong.about = "Just a tribute."
 
 console.log(`Exercise 4 - ${thisSong.about}`)

@@ -15,11 +15,18 @@ console.log(`Exercise 1 - ${letterB}`)
 const friends = [];
 
 // What a lonely array. Add at least 3 friend objects to it.  
-friends.push("Friend 1")
-friends.push("Friend 2")
-friends.push("Friend 3")
-
-console.log(`Exercise 2 - ${friends}`)
+friends.push({
+    name: "Friend 1",
+    age: 20
+})
+friends.push({
+    name: "Friend 2",
+    age: 25
+})
+friends.push({
+    name: "Friend 3",
+    age: 30
+})
 
 
 // --------------------------------------
