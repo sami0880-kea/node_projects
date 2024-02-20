@@ -1,10 +1,13 @@
 //const express = require("express");
 //const app = express();
 
-const app = require("express")();
+const express = require("express");
+const app = express();
 const port = 8080;
 
 console.log(`Server running on port ${port}...`);
+
+app.use(express.json());
 
 // ROUTE
     // ENDPOINT
@@ -82,6 +85,22 @@ app.get("/wallet/balance", (req, res) => {
     res.send({
         data: `Your balance is ${balance}.`
     });
+});
+
+app.get("/saySomethingNiceAboutMe/:greeting", (req, res) => {
+    const providedGreeting = req.params.greeting
+    const handsomeQuery = req.query.handsome
+    console.log(providedGreeting)
+
+    if(handsomeQuery === "very") {
+        res.send({ data: "thanks cool cat" });
+    }
+    res.send({ data: "ain't no thang" });
+});
+
+app.post("/postman", (req, res) => {
+    console.log("Req body", req.body);
+    res.send(req.body)
 });
 
 app.get("/page", (req, res) => {

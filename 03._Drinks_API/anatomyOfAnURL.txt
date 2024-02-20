@@ -1,0 +1,10 @@
+
+
+PROTOCOL  SUBDOMAIN  DOMAIN  TOP-LEVEL DOMAIN   ENDPOINT
+https://    www.     google   .com              /search?q=test
+
+
+PATH        QUERY  STRING
+/search   ?   q     =test
+         QUERY PARAMETERS
+<---- PATH VARIABLE ---->
