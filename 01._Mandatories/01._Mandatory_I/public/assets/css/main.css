@@ -1,0 +1,26 @@
+body {
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: flex;
+    align-items:center;
+}
+
+nav a {
+    font-size: 18px;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+#navLogo {
+    width: 6em;
+}
+
+main {
+    flex: 1;
+}
