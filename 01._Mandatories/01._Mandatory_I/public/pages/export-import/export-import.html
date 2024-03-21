@@ -1,20 +1,33 @@
 <h1>Export / Import</h1>
 <div>
     <p>
-        This website is a documentation of the Full Stack Course (Node.js) 2024. 
-        Everything we've learned from the start of the course till now is documented 
-        and will be updated throughout the rest of the course also
+        With Node.js we can export and import modules. There are 2 different type of modules in
+        Node.js, <code>CommonJS</code> and <code>ES Module</code>. These two are a bit different
+        in how you structure your export and imports. We can change which type we use by changing
+        our <code>package.json</code>. We can add the code below to change to ES Module.
+        <pre>
+            <code>
+  {
+    "type": "module" // or "commonjs"
+  }
+            </code>
+        </pre>
+        In this course we tend to use ES Module instead of the default module in Node.js
     </p>
 </div>
 <h3 id="commonjs">CommonJS</h3>
 <div>
     <p>
-        Text...
+        CommonJS is the default module for Node.js projects. In CommonJS when we import modules we are using 
+        <code>const express = require('express');</code> and when we export we use <code>module.exports = { express };</code>
+
     </p>
 </div>
 <h3 id="esmodules">ES Modules</h3>
 <div>
     <p>
-        Text...
+        We are able to change our module to ES Module as mentioned earlier. ES stands for ECMAScript. It is a bit
+        different from CommonJS. When we import modules we use <code>import express from 'express';</code> and when
+        we export we use <code>export function sayHello() {return "Hello"}</code>
     </p>
 </div>

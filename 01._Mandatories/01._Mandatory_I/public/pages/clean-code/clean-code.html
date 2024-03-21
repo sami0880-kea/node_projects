@@ -1,20 +1,49 @@
 <h1>Clean Code</h1>
 <div>
     <p>
-        This website is a documentation of the Full Stack Course (Node.js) 2024. 
-        Everything we've learned from the start of the course till now is documented 
-        and will be updated throughout the rest of the course also
+        Having clean code is important especially when you work in a team. When having clean code 
+        it can be easier for other developers to be involved in your code instead of spending
+        hours trying to understand your code. 
     </p>
 </div>
 <h3 id="debug">Debug</h3>
 <div>
     <p>
-        Text...
+        Debugging is a useful tool when both testing and finding "hidden" problems in your code.
+        Javascript is good at giving error trackstaces, below is an example of a typo in my code 
+        where I'm trying to use a variable that is not defined.
+        <pre>
+            <code>
+  app.listen(porf, () => console.log(`Server running on port`, port));
+              ^
+
+  ReferenceError: porf is not defined
+    at file://01._Mandatories/01._Mandatory_I/app.js:12:12
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+            </code>
+        </pre>
+
+        When reading the stacktrace it's very easy to understand the mistake. It tells the exact line and placement of the 
+        error. It also tells that I've wrote something that I have not defined. But it's not always that stacktraces will
+        be this simple. Sometimes you won't even get an error and sometime it can be hard to understand it.
+
+        <br>
+        <br>
+        A lazy way to debug your code is using <code>console.log()</code> and see if it logs.
     </p>
 </div>
 <h3 id="Linters">Linters</h3>
 <div>
     <p>
-        Text...
+        Linters is a way to have clean code, it analyzes your code better than most IDE's. Most programming languages has
+        a linter which is specilized in that language and it has a set of rules for that language which can vary.
+        <br>
+        <br>
+        A common linter for Javascript is ESLint. It analyzes the code and detects errors, warnings and check how 
+        the structure of the code is. It can gives tips on what to change and a common mistake it tells that I 
+        also get a lot is missing a <code>;</code> at the end of a line or function. 
     </p>
 </div>

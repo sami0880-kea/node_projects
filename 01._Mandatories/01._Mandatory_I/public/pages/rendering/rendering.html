@@ -1,20 +1,30 @@
 <h1>Rendering</h1>
 <div>
     <p>
-        This website is a documentation of the Full Stack Course (Node.js) 2024. 
-        Everything we've learned from the start of the course till now is documented 
-        and will be updated throughout the rest of the course also
+        When working with Web Application there are 2 ways of rendering the page, SSR and CSR.
+        They both has its own pro and cons and it varies which one you use depending on which
+        kind of web application you have and what you focus on.
     </p>
 </div>
 <h3 id="ssr">Server Side Rendering</h3>
 <div>
     <p>
-        Text...
+        SSR which stands for Server Side generates the whole page content and sends it to the client.
+        Next.js which is a web framework that many web application use now uses SSR. In this project
+        I've used SSR using Express. SSR is also best for SEO which may be important for websites like
+        webshops. 
+        <br>
+        <br>
+        I have a template engine which contains a function that renders
+        a page and that includes always implementing the sidebar and the footer so I don't have to 
+        always write it for each HTML page and also makes it easier to make changes only in one place.
     </p>
 </div>
 <h3 id="csr">Client Side Rendering</h3>
 <div>
     <p>
-        Text...
+        CSR which stands for Client Side Rendering uses Javascript to send content to the client. Many
+        big frameworks like React, Angular and Vue uses CSR as it is good when working with dynamicaly 
+        content. 
     </p>
 </div>
