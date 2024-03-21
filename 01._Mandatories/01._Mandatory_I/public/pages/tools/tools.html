@@ -1,0 +1,118 @@
+<h1>Tools</h1>
+<div>
+    <p>
+        In the Full Stack Node.js course, we use a lot of different tools to boost
+        our development workflow. Some of these are essential tools but other is a 
+        nice-to-have to help making it easier when developing. 
+    </p>
+</div>
+
+<h3 id="vs-code">VS Code</h3>
+<div>
+    <p>
+        Visual Studio Code is a code editor made by Microsoft. This is the IDE we use in the course
+        writing code. It's an easy and user-friendly code editor with built in tools like syntax
+        highlighting. I've personally used VS Code for most of my projects both in the course
+        and outside the course. It's personally my favourite IDE as it can be customized with themes
+        and extensions.
+    </p>
+</div>
+
+<h3 id="git">Git</h3>
+<div>
+    <p>
+        Git is a version control that can keep a track of changes in your code. It is an essential
+        tool to prevent faulty code so you're always able to go back if the new changes doesn't work.
+        <br>
+        <br> 
+        In this course I use Github to host my git repositories which is a free tool to host your projects
+        and easily share and access them on the web. Today Github has a lot of other features including 
+        codespace where you're able to code inside your browser and projects which is a project management
+        tool to also keep track of what to do and what's done.
+        <br>
+        <br>
+        We've been told to remember 3 specific commands, we should remember these commands as they are
+        essential in development. Below are the commands we use to add the changes, commmit them and 
+        push them to our repository.
+    </p>
+</div>
+<pre>
+    <code class="language-powershell">
+  // This git command stages all changes and adds the changes for the next commit
+  $ git -add -A
+    </code>
+    <code class="language-powershell">
+  // This git command commits the changes for the previous command with a message
+  $ git commit -M "Message"
+    </code>
+    <code class="language-powershell">
+  // This git command pushes all changes to our repository. I use Github to host my repositries.
+  $ git push
+    </code>
+</pre>
+
+<h3 id="node-js">Node.js</h3>
+<div>
+    <p>
+        Node.js is a open source Javascript runtime enviroment. It runs on the V8 Javascript engine which is an engine
+        made by Google and the leader developer is a Danish developer, Lars Bak. 
+        <br>
+        <br>
+        In this course Node.js is essential as we can run code outside of our browser. We can also install dependencies
+        like Express which requires Node.js and we use npm for that which will be described under. We can run .js files
+        with node by running the following command:
+        <pre>
+            <code class="language-powershell">
+  $ node 'file name.js'
+            </code>
+        </pre>
+    </p>
+</div>
+<h4 id="npm">npm</h4>
+<div>
+    <p>
+        npm which stands for Node Package Manager is included in Node.js. It is used to manage dependencies
+        which we can use instead of writing new code that already exist. npm has a website where you're able
+        to browse different dependencies that you can use in your code instead of writing it yourself.
+    </p>
+</div>
+<h4 id="node_modules">node_modules</h4>
+<div>
+    <p>
+        node_modules is the folder with all installed dependencies. When you install a dependency in your project
+        this files is usually in the node_modules folder. It usually contains thousands of files which is why it's 
+        important to add it to your .gitignore file. 
+    </p>
+</div>
+<h4 id="package-json">package.json</h4>
+<div>
+    <p>
+        package.json is the metadata of your code. It contains a list of installed dependencies, which version of the
+        dependency you are using. It can also define the type of Javascript you are using <code>"type": "module"</code>
+        will make your code run ECMAScript. This is what we usually in our projects in this course.
+    </p>
+</div>
+<h3 id="nodemon">Nodemon</h3>
+<div>
+    <p>
+        nodemon is tool that makes it easier to run your code in development. Instead of using the classic
+        <code>node 'file name.js'</code>  we can use <code>nodemon 'file name.js'</code> which automatically restarts the application when 
+        changes our made in the code. This is a useful tool especially when working with web application where
+        you need to make a lot of changes and instead of manually restarting node it does it automatically.
+        <br>
+        <br>
+        A key thing to remember as we use Server Side Rendering in the course now, is that we need to make sure to add
+        additional extensions which makes the node projects. We need to make nodemon restart when there are changes in files
+        like <code>js</code>, <code>json</code>, <code>html</code> and <code>css</code>. We can add this either directly in
+        the command line with <code>nodemon 'file name.js' --ext js,json,html,css</code> or a smarter way is to add it
+        in a <code>nodemon.json</code> file in our project. We can add this file which should contain following:
+        <pre>
+            <code>
+    {
+        "ext": "html,js,json,css"
+    }
+            </code>
+        </pre>
+        This will automatically add these extenstions when we run <code>nodemon 'file name.js</code> only.
+    </p>
+</div>
