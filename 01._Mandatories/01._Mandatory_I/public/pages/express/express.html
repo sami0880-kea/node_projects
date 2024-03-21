@@ -11,7 +11,15 @@
 <h3 id="rest-api">REST API</h3>
 <div>
     <p>
-        Text...
+        REST API is a web service that makes it possible to communicate between application and computers. It is something
+        that you would find in most web applcations. Below is an representation of how REST API works, the client sends a
+        request to the server which usually calls a database and then uses one of the HTTP methods like GET. 
+        <img src="https://phpenthusiast.com/theme/assets/images/blog/what_is_rest_api.png" alt="restapi" width="600px">
+
+        There are some principles we should remember when working with REST API. It is how we define our endpoints as 
+        we've learned in the course to have some standards when making an API. Below is a table of how an REST API
+        structure would look like. Let's use products as an example. We don't use <code>/getProducts</code> 
+        or <code>/editProduct</code>. We should only use <code>/products</code> for all HTTP methods.
     </p>
     <table>
         <thead>
@@ -24,46 +32,55 @@
         <tbody>
           <tr>
             <td>GET</td>
-            <td>/ai_models</td>
-            <td>Get all AI models</td>
+            <td><code>/products</code></td>
+            <td>Get all products</td>
           </tr>
           <tr>
             <td>GET</td>
-            <td>/ai_models/{id}</td>
-            <td>Get AI model by ID</td>
+            <td><code>/products/{id}</code></td>
+            <td>Get product by ID</td>
           </tr>
           <tr>
             <td>POST</td>
-            <td>/ai_models</td>
-            <td>Create a AI model</td>
+            <td><code>/products</code></td>
+            <td>Create a product</td>
           </tr>
           <tr>
             <td>PUT</td>
-            <td>/ai_models/{id}</td>
-            <td>Edit a AI model resource by ID</td>
+            <td><code>/products/{id}</code></td>
+            <td>Edit a product resource by ID</td>
           </tr>
           <tr>
             <td>PATCH</td>
-            <td>/ai_models/{id}</td>
-            <td>Edit a part of AI model by ID</td>
+            <td><code>/products/{id}</code></td>
+            <td>Edit a part of product by ID</td>
           </tr>
           <tr>
             <td>DELETE</td>
-            <td>/ai_models/{id}</td>
-            <td>Delete a AI model by ID</td>
+            <td><code>/products/{id}</code></td>
+            <td>Delete a product by ID</td>
           </tr>
         </tbody>
       </table>
 </div>
-<h3 id="requests">Requests</h3>
-<div>
-    <p>
-        Text...
-    </p>
-</div>
 <h3 id="routers">Routers</h3>
 <div>
     <p>
-        Text...
+        Routers is a way to organize your code. Instead of having all your endpoints in 
+        a single file, we can create routers which is implemented in Express. Below is an example
+        of how you would implement it. 
+        <pre>
+            <code>
+  import { Router } from 'express';
+  const router = Router();
+
+  router.get("/", (req, res) => {
+    res.send(homePage);
+  });
+            </code>
+        </pre>
+        We create
+        a routers in the project folder which contains all the http methods for that 
+        specific category. It could be a <code>pagesRouter</code> and a <code>productsRouter</code>.
     </p>
 </div>

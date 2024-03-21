@@ -1,44 +1,208 @@
-<h1>Fundamentals</h1>
+<h1>Programming Fundamentals</h1>
 <div>
     <p>
-        This website is a documentation of the Full Stack Course (Node.js) 2024. 
-        Everything we've learned from the start of the course till now is documented 
-        and will be updated throughout the rest of the course also
+        At the start of the course we learned the basics of Javascript. There are some principles
+        of how we code and which things we should avoid. An example is when defining variables
+        we should avoid using <code>var</code> and instead use <code>const</code>. 
     </p>
 </div>
 <h3 id="data-types">Data Types</h3>
 <div>
     <p>
-        Text...
+        In Javascript there are many different data types below is a table of the data types
+        in Javascript.
+        <table>
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>String</td>
+                <td>A string value</td>
+                <td><code>const name = "Samim"</code></td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>A number value</td>
+                <td><code>const number = 99</code></td>
+              </tr>
+              <tr>
+                <td>Boolean</td>
+                <td>A True or false value</td>
+                <td><code>const isOpen = false</code></td>
+              </tr>
+              <tr>
+                <td>Null</td>
+                <td>No value</td>
+                <td><code>const noValue = null</code></td>
+              </tr>
+              <tr>
+                <td>Undefined</td>
+                <td>An undefined value</td>
+                <td><code>const undefiedValue</code></td>
+              </tr>
+              <tr>
+                <td>Object</td>
+                <td>An object of key & values</td>
+                <td><code>const object = {key: value}</code></td>
+              </tr>
+              <tr>
+                <td>Array</td>
+                <td>A list of values</td>
+                <td><code>const array = [1, 2, 3, 4, 5]</code></td>
+              </tr>
+              <tr>
+                <td>Function</td>
+                <td>An executable value</td>
+                <td><code>const function() {}</code></td>
+              </tr>
+            </tbody>
+          </table>
     </p>
 </div>
 <h3 id="variables">Variables</h3>
 <div>
     <p>
-        Text...
+        In Javascript there are different ways of declaring a variable like <code>let</code>, <code>var</code> and <code>const</code>
+        in this course we use <code>const</code> and sometimes we may use <code>let</code>. Defining a variable in Javascript
+        is easier compared to other languages like Java. We don't use <code>var</code> because it's global meaning when defined
+        in a scope it can also be used outside a scope. For example if you define <code>const name = "Samim"</code> inside a
+        function you can use it outside a function but if you use <code>let</code> or <code>const</code> it won't be 
+        accessable outside the scope. 
+        <br>
+        <br>
+        We don't need to define what data type it is. We can just create a variable like this <code>const name = "Samim"</code>.
+    </p>
+</div>
+<h3 id="objects">Objects</h3>
+<div>
+    <p>
+        Objects is a way of storing a collection of key-value pairs. Below is an example of an product object.
+        It has 2 key-value pairs. It has name and the name of the product and the price of the product. 
+        <pre>
+            <code>
+  const product = {
+    name: "Macbook Pro",
+    price: 9900
+  }
+            </code>
+        </pre>
     </p>
 </div>
 <h3 id="arrays">Arrays</h3>
 <div>
     <p>
-        Text...
+        Arrays is also a way of storing values but instead of a key-value pair it only stores a single
+        variable. Below is an example of how to declare an array of product categories. The array is 
+        split in elements and you are able to <code>push</code> and <code>pop</code> elements from the array.
+        <pre>
+            <code>
+  const categories = ["Laptops", "Phones", "Tablets"]
+            </code>
+        </pre>
     </p>
 </div>
 <h3 id="functions">Functions</h3>
 <div>
     <p>
-        Text...
+        Functions is a way to write code that is reusable. There are different way to create a function
+        below is examples of the different ways to create functions. With function you can call the same
+        code as many times as you want and you are also able to return something.
+
+        <pre>
+            <code>
+  // Normal function
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max + 1 - min) + min);
+  }
+
+  // Anonymous Function
+  const getRandomIntAnonymous = function(min, max) {
+    return Math.floor(Math.random() * (max + 1 - min) + min);
+  }
+
+  // Arrow Function
+  const getRandomIntArrow = (min, max) => {
+    return Math.floor(Math.random() * (max + 1 - min) + min); 
+  }
+
+  // Oneliner arrow function
+  const getRandomIntArrowOneliner = (min, max) => Math.floor(Math.random() * (max + 1 - min) + min); 
+
+  // Generic Action Performer
+  function genericActionPerformer(name, genericAction) {
+    return genericAction(name);
+  }
+            </code>
+        </pre>
     </p>
 </div>
 <h3 id="loops">Loops</h3>
 <div>
     <p>
-        Text...
+        In Javascript there are many way to loop through a list. In this course
+        we mostly use <code>map</code>, <code>filter</code> and <code>reduce</code> as
+        some loops can create unnecessary side effects so we should try avoiding it.
+        Below is an example of how we map through a list of products and increase the 
+        prices of the product by 10%
+        <pre>
+            <code>
+  const increasedPrices = products.map((product) => {
+    let newProductPrice = product.price * 1.10
+    product.price = newProductPrice
+    return product
+  });
+            </code>
+        </pre>
     </p>
 </div>
 <h3 id="asynchronous">Asynchronous</h3>
 <div>
     <p>
-        Text...
+        Asynchronous code allows us to execute code without cancelling
+        the other code. This is useful when you have to wait for something like
+        when you fetch data from an API it can take some time before you get the
+        data. That's why we use asynchronous to avoid waiting for it to finish before
+        we continue. 
+        <br>
+        <br>
+        One way of having asynchronous code is using promises. A promise can have 
+        two states, either <code>pending</code> or <code>fulfilled</code> which can 
+        result in it either being <code>resolved</code> or <code>rejected</code> below
+        is an example of how you would create a promise that returns <code>Everything OK</code>
+        after 2 seconds.
+        <pre>
+            <code>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve("Everything OK")
+      } catch (error) {
+        reject("Nothing OK")
+      }
+    }, 2000);
+  })
+  .then((successMessage) => console.log(successMessage))
+  .catch((errorMessage) => console.log(errorMessage));
+            </code>
+        </pre>
+        Another way of having asynchronous code is using async / await. We can have 
+        a <code>async</code> function and then you can <code>await</code> data. Below
+        is an example of how a async / await function would look like.
+        <pre>
+            <code>
+  async function main() {
+    try {
+      const myPromiseResult = await myPromise();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+            </code>
+        </pre>
     </p>
 </div>
