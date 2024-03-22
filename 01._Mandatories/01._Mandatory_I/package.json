@@ -3,7 +3,12 @@
   "dependencies": {
     "express": "^4.18.3"
   },
+  "scripts": {
+    "dev": "cross-env PORT=9090 nodemon app.js",
+    "prod": "cross-env PORT=80 node app.js"
+  },
   "devDependencies": {
-    "@flydotio/dockerfile": "^0.5.3"
+    "@flydotio/dockerfile": "^0.5.3",
+    "cross-env": "^7.0.3"
   }
 }
