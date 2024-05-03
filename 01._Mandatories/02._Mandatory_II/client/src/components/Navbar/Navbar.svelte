@@ -23,7 +23,7 @@
       <DropdownItem>Sign out</DropdownItem>
     </Dropdown>
     <NavUl>
-      <NavLi href="/" active={true}>Home</NavLi>
+      <NavLi href="#" active={true}>Home</NavLi>
       <NavLi href="#">Contact Us</NavLi>
     </NavUl>
   </Navbar>

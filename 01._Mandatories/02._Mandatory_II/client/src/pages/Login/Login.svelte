@@ -1,5 +1,6 @@
 <script>
-    import { navigate } from 'svelte-routing';
+    import { navigate, useLocation } from 'svelte-routing';
+    import { user } from '../../stores/userStore.js'
     import { Card, Input, Label, Button, Hr, Toast, Spinner, A } from 'flowbite-svelte';
     import { fly } from 'svelte/transition';
     import { onMount } from 'svelte';
@@ -12,6 +13,8 @@
     let failToast = false;
     let successToast = false;
     let isLoading = false;
+
+    const location = useLocation();
 
     async function login() {
         try {
@@ -31,7 +34,9 @@
                 return
             }
 
-            navigate('/');
+            user.set({ email, password });
+            console.log(user)
+            navigate("/", { replace: true });
             isLoading = false;
         } catch (error) {
             failToast = true;
@@ -80,7 +85,7 @@
     </Card>
 </div>
 
-<Toast transition={fly} params={{ x: 200 }} dismissable={false} position="bottom-right" class="bg-red-500 dark:bg-red-500 text-white dark:text-white mb-4 fixed" bind:open={failToast}>
+<Toast transition={fly} params={{ x: 200 }} dismissable={false} position="bottom-right" color="none" defaultIconClass="w-8 h-8 text-red bg-white" class="bg-red-500 dark:bg-red-500 text-white dark:text-white mb-4 fixed" bind:open={failToast}>
     <X slot="icon" class="text-red-500 w-5 h-5"/>
     Invalid login details!
 </Toast>

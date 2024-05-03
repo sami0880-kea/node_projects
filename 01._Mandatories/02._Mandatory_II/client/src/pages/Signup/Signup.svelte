@@ -92,7 +92,7 @@
     </Card>
 </div>
 
-<Toast transition={fly} params={{ x: 200 }} dismissable={false} position="bottom-right" class="bg-red-500 dark:bg-red-500 text-white dark:text-white mb-4 fixed" bind:open={failToast}>
+<Toast transition={fly} params={{ x: 200 }} dismissable={false} position="bottom-right" color="none" defaultIconClass="w-8 h-8 text-red bg-white" class="bg-red-500 dark:bg-red-500 text-white dark:text-white mb-4 fixed" bind:open={failToast}>
     <X slot="icon" class="text-red-500 w-5 h-5"/>
     {errorMessage}
 </Toast>
