@@ -1,19 +1,32 @@
 <script>
-    import { navigate, useLocation } from "svelte-routing";
-    import { user } from "../stores/userStore.js";
-  
-    const location = useLocation();
-  
-    // Redirect if the user is not logged in
-    $: if (!$user) {
-      navigate("/login", {
-        //state: { from: $location.pathname },
-        replace: true,
+  import { user } from "../stores/userStore.js";
+  import { tick } from "svelte";
+  import { navigate } from "svelte-routing";
+  import { onMount } from "svelte";
+
+  let isAuthenticated = false;
+
+  onMount(async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/user', {
+        credentials: 'include',
+      });
+      isAuthenticated = response.ok;
+      const result = await response.json();
+      user.set(result);
+    } catch (error) {
+      isAuthenticated = false;
+    }
+
+    if (!isAuthenticated) {
+      // await tick();
+      navigate("/login", { 
+        replace: true 
       });
     }
-  </script>
-  
-  {#if $user}
-    <slot />
-  {/if}
-  
+  });
+</script>
+
+{#if isAuthenticated}
+  <slot />
+{/if}

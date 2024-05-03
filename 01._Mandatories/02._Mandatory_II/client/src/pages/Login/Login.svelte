@@ -19,11 +19,11 @@
     async function login() {
         try {
             isLoading = true;  
-            const response = await fetch('http://localhost:8080/login', {
+            const response = await fetch('http://localhost:8080/api/login', {
                 method: 'POST',
                 credentials: "include",
                 headers: {
-                'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ email, password })
             });
@@ -34,9 +34,9 @@
                 return
             }
 
-            user.set({ email, password });
+            user.set({ email });
             console.log(user)
-            navigate("/", { replace: true });
+            navigate("/home", { replace: true });
             isLoading = false;
         } catch (error) {
             failToast = true;
@@ -57,7 +57,6 @@
 
 
 <div class="flex flex-col items-center justify-center min-h-screen">
-    <DarkMode />
     <Card>
     <form on:submit|preventDefault={login} class="flex flex-col space-y-6">
         <h1 class="text-xl font-medium text-gray-900 dark:text-white">Login</h1>

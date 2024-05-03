@@ -1,6 +1,26 @@
 <script>
     import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from 'flowbite-svelte';
+    import { navigate } from "svelte-routing";
+    import { user } from '../../stores/userStore.js';
     import { DarkMode } from 'flowbite-svelte';
+
+    async function logout() {
+        try {
+            const response = await fetch('http://localhost:8080/api/logout', {
+                method: 'POST',
+                credentials: 'include',
+            });
+
+            if (response.ok) {
+                user.set({ email: null });
+                navigate("/login", { replace: true });
+            } else {
+                console.error("Failed to log out");
+            }
+        } catch (error) {
+            console.error("Error logging out:", error);
+        }
+    }
  </script>
   
   <Navbar>
@@ -14,13 +34,13 @@
     </div>
     <Dropdown placement="bottom" triggeredBy="#avatar-menu">
       <DropdownHeader>
-        <span class="block text-sm">Unknown Doe</span>
-        <span class="block truncate text-sm font-medium">unknowndoe@mail.com</span>
+        <span class="block text-sm">{$user.name}</span>
+        <span class="block truncate text-sm font-medium">{$user.email}</span>
       </DropdownHeader>
       <DropdownItem>My Account</DropdownItem>
       <DropdownItem>Settings</DropdownItem>
       <DropdownDivider />
-      <DropdownItem>Sign out</DropdownItem>
+      <DropdownItem on:click={logout}>Sign out</DropdownItem>
     </Dropdown>
     <NavUl>
       <NavLi href="#" active={true}>Home</NavLi>

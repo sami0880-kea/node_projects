@@ -24,7 +24,7 @@
         isLoading = true;
 
         try {
-            const response = await fetch('http://localhost:8080/signup', {
+            const response = await fetch('http://localhost:8080/api/signup', {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json' 
@@ -34,7 +34,7 @@
 
             if (response.ok) {
                 successToast = true;
-                navigate('/');
+                navigate('/login');
             } else {
                 const result = await response.text();
                 throw new Error(result);
@@ -53,7 +53,6 @@
 </script>
 
 <div class="flex flex-col items-center justify-center min-h-screen">
-    <DarkMode />
     <Card>
         <form on:submit|preventDefault={handleSubmit} class="flex flex-col space-y-6">
             <h1 class="text-xl font-medium text-gray-900 dark:text-white">Sign up</h1>
