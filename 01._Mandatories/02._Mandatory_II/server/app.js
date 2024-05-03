@@ -26,5 +26,8 @@ app.use('/api', authRouter);
 import userRouter from './routers/userRouter.js';
 app.use('/api', userRouter);
 
+import mailRouter from './routers/mailRouter.js';
+app.use('/api', mailRouter);
+
 const PORT = process.env.PORT ?? 8080;
 app.listen(PORT, () => console.log("Server running on port", PORT));

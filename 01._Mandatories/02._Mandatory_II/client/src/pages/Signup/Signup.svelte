@@ -52,6 +52,7 @@
     }
 </script>
 
+<DarkMode class="hidden"/>
 <div class="flex flex-col items-center justify-center min-h-screen">
     <Card>
         <form on:submit|preventDefault={handleSubmit} class="flex flex-col space-y-6">

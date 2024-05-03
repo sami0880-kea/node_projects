@@ -3,6 +3,11 @@
     import { navigate } from "svelte-routing";
     import { user } from '../../stores/userStore.js';
     import { DarkMode } from 'flowbite-svelte';
+    import { derived } from 'svelte/store';
+    
+    const userInfo = derived(user, $user => $user ?? 'User');  
+
+    let activeUrl = window.location.pathname;
 
     async function logout() {
         try {
@@ -12,7 +17,7 @@
             });
 
             if (response.ok) {
-                user.set({ email: null });
+                user.set(null);
                 navigate("/login", { replace: true });
             } else {
                 console.error("Failed to log out");
@@ -24,8 +29,9 @@
  </script>
   
   <Navbar>
-    <NavBrand href="/">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dyson_logo.svg/1280px-Dyson_logo.svg.png" class="me-3 h-6 sm:h-9" alt="Google Logo" />
+    <NavBrand href="/dashboard">
+      <img src="assets/images/logo-dark.png" class="dark:hidden me-3 h-6 sm:h-14" alt="Google Logo" />
+      <img src="assets/images/logo-light.png" class="hidden dark:block me-3 h-6 sm:h-14" alt="Google Logo" />
     </NavBrand>
     <div class="flex items-center md:order-2">
       <DarkMode class="text-primary-500 dark:text-primary-600 border dark:border-gray-800 mx-4" />
@@ -34,16 +40,12 @@
     </div>
     <Dropdown placement="bottom" triggeredBy="#avatar-menu">
       <DropdownHeader>
-        <span class="block text-sm">{$user.name}</span>
-        <span class="block truncate text-sm font-medium">{$user.email}</span>
+        <span class="block text-sm">{$userInfo.name}</span>
       </DropdownHeader>
-      <DropdownItem>My Account</DropdownItem>
-      <DropdownItem>Settings</DropdownItem>
-      <DropdownDivider />
       <DropdownItem on:click={logout}>Sign out</DropdownItem>
     </Dropdown>
-    <NavUl>
-      <NavLi href="#" active={true}>Home</NavLi>
-      <NavLi href="#">Contact Us</NavLi>
+    <NavUl {activeUrl}>
+      <NavLi href="/dashboard" active={true}>Dashboard</NavLi>
+      <NavLi href="/contact">Contact Us</NavLi>
     </NavUl>
   </Navbar>
